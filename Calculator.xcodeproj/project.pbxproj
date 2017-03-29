@@ -37,6 +37,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8A14B731E8C492E00C761C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E8C054A51E8C41DA00276640 /* AppDelegate.swift */,
+				E8C054AC1E8C41DA00276640 /* Assets.xcassets */,
+				E8C054AE1E8C41DA00276640 /* LaunchScreen.storyboard */,
+				E8C054B11E8C41DA00276640 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		E8C054991E8C41DA00276640 = {
 			isa = PBXGroup;
 			children = (
@@ -57,12 +68,9 @@
 		E8C054A41E8C41DA00276640 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				E8C054A51E8C41DA00276640 /* AppDelegate.swift */,
 				E8C054A71E8C41DA00276640 /* ViewController.swift */,
 				E8C054A91E8C41DA00276640 /* Main.storyboard */,
-				E8C054AC1E8C41DA00276640 /* Assets.xcassets */,
-				E8C054AE1E8C41DA00276640 /* LaunchScreen.storyboard */,
-				E8C054B11E8C41DA00276640 /* Info.plist */,
+				E8A14B731E8C492E00C761C5 /* Supporting Files */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
