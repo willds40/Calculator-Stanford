@@ -12,6 +12,7 @@
 		E8C054AB1E8C41DA00276640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C054A91E8C41DA00276640 /* Main.storyboard */; };
 		E8C054AD1E8C41DA00276640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8C054AC1E8C41DA00276640 /* Assets.xcassets */; };
 		E8C054B01E8C41DA00276640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C054AE1E8C41DA00276640 /* LaunchScreen.storyboard */; };
+		E8C054BC1E8C48C200276640 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E8C054BB1E8C48C200276640 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E8C054AC1E8C41DA00276640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8C054AF1E8C41DA00276640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8C054B11E8C41DA00276640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8C054BB1E8C48C200276640 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		E8C054991E8C41DA00276640 = {
 			isa = PBXGroup;
 			children = (
+				E8C054BB1E8C48C200276640 /* .gitignore */,
 				E8C054A41E8C41DA00276640 /* Calculator */,
 				E8C054A31E8C41DA00276640 /* Products */,
 			);
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C054BC1E8C48C200276640 /* .gitignore in Resources */,
 				E8C054B01E8C41DA00276640 /* LaunchScreen.storyboard in Resources */,
 				E8C054AD1E8C41DA00276640 /* Assets.xcassets in Resources */,
 				E8C054AB1E8C41DA00276640 /* Main.storyboard in Resources */,
@@ -302,6 +306,7 @@
 				E8C054B61E8C41DA00276640 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
