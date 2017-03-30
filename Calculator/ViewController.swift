@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     var currentUserIsTyping = false
+    var digit = " "
+    var mathematicalSymbol = " "
+    
     
     private var displayValue:Double{
         get{
@@ -22,25 +25,35 @@ class ViewController: UIViewController {
     }
     
     var brain = CalculatorBrain()
-
+    
     @IBAction private func mathematicalOperation(_ sender: UIButton) {
+        
         if currentUserIsTyping{
-        brain.setOperand(operand: displayValue)
+            brain.setOperand(operand: displayValue)
             currentUserIsTyping = false
         }
-        if let mathematicalSymbol = sender.currentTitle{
-        brain.preformOperation(mathematicalSymbol:mathematicalSymbol)
-        }
-        displayValue = brain.result
+        mathematicalSymbol = sender.currentTitle!
+                brain.preformOperation(mathematicalSymbol:mathematicalSymbol)
+            displayValue = brain.result
+
+            }
+    func clear()->String{
+        return " "
     }
     
+    @IBAction func PrintDescription(_ sender: UIButton) {
+            display.text! = clear()
+            display.text! = brain.printDescription(oper1: digit, symbol: mathematicalSymbol, secondOperand: "", result: brain.result)
+        
+    }
     @IBAction private func digit(_ sender: UIButton) {
-    let digit = sender.currentTitle!
+         digit = sender.currentTitle!
         if currentUserIsTyping{
-    let currentDisplayText = display.text!
-    display.text! = currentDisplayText + digit
+            let currentDisplayText = display.text!
+            display.text! = currentDisplayText + digit
+            digit = currentDisplayText + digit
         }else{
-        display.text! = digit
+            display.text! = digit
         }
         currentUserIsTyping = true
     }
@@ -49,12 +62,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
-
-
+    
+    
 }
 

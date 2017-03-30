@@ -3,6 +3,7 @@ import Foundation
 
 class CalculatorBrain{
     var accumalator = 0.0
+    var description = " "
     
     func setOperand(operand:Double){
         accumalator = operand
@@ -18,15 +19,17 @@ class CalculatorBrain{
         "sin": Operation.UniaryOperations(sqrt),
         "e" :Operation.Constant(M_E),
         "tan":Operation.UniaryOperations(tan),
-        "square": Operation.UniaryOperations({$0 * $0}),
-        "cube" :Operation.UniaryOperations({$0 * $0 * $0}),
-        "^4" :Operation.UniaryOperations({$0 * $0 * $0 * $0} ),
-        "+" :Operation.BinaryOperations({$0 * $1}),
+        "log": Operation.UniaryOperations(log),
+        "logten" :Operation.UniaryOperations(log10),
+        "logtwo" :Operation.UniaryOperations(log2),
+        "+" :Operation.BinaryOperations({$0 + $1}),
         "-": Operation.BinaryOperations({$0 - $1}),
         "/": Operation.BinaryOperations({$0 / $1}),
         "x" : Operation.BinaryOperations({$0 * $1}),
         "cos" : Operation.UniaryOperations(cos),
         "Clear":Operation.Clear,
+        "Desc.":Operation.Description,
+        "√":Operation.UniaryOperations(sqrt),
         "=":Operation.Equals,
         ]
     
@@ -36,21 +39,37 @@ class CalculatorBrain{
         case BinaryOperations((Double, Double)->Double)
         case Equals
         case Clear
+        case Description
+        
     }
     
+    func printDescription(oper1:String, symbol:String, secondOperand:String, result:Double )->String{
+        description = description + oper1 + " " + symbol + " " + String(result)
+        if description.contains("...") {
+            description = description.replacingOccurrences(of: " ...", with: "")
+        }
+        return description
+    }
     
     func preformOperation(mathematicalSymbol:String){
+        
         if let operation = operations[mathematicalSymbol]{
             switch operation {
-            case .Constant(let value):accumalator = value
-            case .BinaryOperations(let function): pending = PendingBinaryOperationInfo(binaryFunction: function, firstOperand: accumalator)
-            case.UniaryOperations(let function):accumalator = function(accumalator)
+            case .Constant(let value):accumalator = value;
+            
+            case .BinaryOperations(let function): pending = PendingBinaryOperationInfo(binaryFunction: function, firstOperand: accumalator);
+                
+            case.UniaryOperations(let function):accumalator = function(accumalator);
             case.Equals:
                 if pending != nil{
                     accumalator = pending!.binaryFunction(pending!.firstOperand, accumalator)
                 }
-            case .Clear:break
+            case .Clear:
+                self.accumalator = 0.0
+            case .Description:break
+                
             }
+            
         }
     }
     private var pending: PendingBinaryOperationInfo?
@@ -66,6 +85,12 @@ class CalculatorBrain{
             return accumalator
         }
     }
+//    var descriptionResult:String{
+//        get{
+//            return description
+//        }
+//    }
+    
     
     
 }
