@@ -1,8 +1,10 @@
 import Foundation
 
-
+var binaryOperations:[String] = [
+    "x", "/", "+", "-",
+]
 class CalculatorBrain{
-    var accumalator = 0.0
+        var accumalator = 0.0
     var description = " "
     
     func setOperand(operand:Double){
@@ -14,7 +16,7 @@ class CalculatorBrain{
         return accumalator;
     }
     
-    private var  operations:Dictionary<String, Operation> = [
+       private var  operations:Dictionary<String, Operation> = [
         "pie" :Operation.Constant(M_PI),
         "sin": Operation.UniaryOperations(sqrt),
         "e" :Operation.Constant(M_E),
@@ -27,8 +29,6 @@ class CalculatorBrain{
         "/": Operation.BinaryOperations({$0 / $1}),
         "x" : Operation.BinaryOperations({$0 * $1}),
         "cos" : Operation.UniaryOperations(cos),
-        "Clear":Operation.Clear,
-        "Desc.":Operation.Description,
         "√":Operation.UniaryOperations(sqrt),
         "=":Operation.Equals,
         ]
@@ -38,13 +38,10 @@ class CalculatorBrain{
         case UniaryOperations((Double) ->Double)
         case BinaryOperations((Double, Double)->Double)
         case Equals
-        case Clear
-        case Description
-        
     }
     
-    func printDescription(oper1:String, symbol:String, secondOperand:String, result:Double )->String{
-        description = description + oper1 + " " + symbol + " " + String(result)
+    func printDescription(oper1:String, symbol:String, oper2:String, result:String )->String{
+        description = oper1 + " " + symbol + " " + oper2 + "   " + result
         if description.contains("...") {
             description = description.replacingOccurrences(of: " ...", with: "")
         }
@@ -64,10 +61,6 @@ class CalculatorBrain{
                 if pending != nil{
                     accumalator = pending!.binaryFunction(pending!.firstOperand, accumalator)
                 }
-            case .Clear:
-                self.accumalator = 0.0
-            case .Description:break
-                
             }
             
         }
