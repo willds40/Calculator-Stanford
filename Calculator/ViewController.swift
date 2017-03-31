@@ -10,10 +10,10 @@ import UIKit
 
 class CalculatorController: UIViewController {
 
-    var currentUserIsTyping = false, binaryOperation = false
-    var digit = " ", mathematicalSymbol = " ",secondOperand = " "
-    var firstOperand = " ", binaryOperationSymbol = " ", result = " "
-    var brain = CalculatorBrain()
+    private var currentUserIsTyping = false, binaryOperation = false
+    private var digit = " ", mathematicalSymbol = " ",secondOperand = " "
+    private var firstOperand = " ", binaryOperationSymbol = " ", result = " "
+    private var brain = CalculatorBrain()
     
     @IBOutlet weak var display: UILabel!
     
@@ -23,6 +23,18 @@ class CalculatorController: UIViewController {
         }
         set{
             display.text = String(newValue)
+        }
+    }
+    private var saveProgam:CalculatorBrain.PropertyList?
+    
+    @IBAction func save() {
+        saveProgam = brain.program
+    }
+    
+    @IBAction func restore() {
+        if saveProgam != nil{
+        brain.program = saveProgam!
+            displayValue = brain.result
         }
     }
     
@@ -54,10 +66,10 @@ class CalculatorController: UIViewController {
         displayValue = brain.result
     }
     
-    func clearDisplay()->String{
+    private func clearDisplay()->String{
         return " "
     }
-    func reNew(){
+    private func reNew(){
         self.viewDidLoad()
         self.viewWillAppear(true)
     }
