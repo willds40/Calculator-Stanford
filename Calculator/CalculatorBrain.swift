@@ -4,8 +4,9 @@ var binaryOperations:[String] = [
     "x", "/", "+", "-",
 ]
 class CalculatorBrain{
-        var accumalator = 0.0
+    var accumalator = 0.0
     var description = " "
+    var isPartailResult = false
     
     func setOperand(operand:Double){
         accumalator = operand
@@ -41,9 +42,13 @@ class CalculatorBrain{
     }
     
     func printDescription(oper1:String, symbol:String, oper2:String, result:String )->String{
-        description = oper1 + " " + symbol + " " + oper2 + "   " + result
+        if !isPartailResult{
+        description = oper1 + " " + symbol + " " + oper2  + " =" + " " + result
         if description.contains("...") {
             description = description.replacingOccurrences(of: " ...", with: "")
+        }
+        }else{
+        description = oper1 + " " +  symbol + oper2 + "..."
         }
         return description
     }
@@ -70,7 +75,6 @@ class CalculatorBrain{
     private struct PendingBinaryOperationInfo {
         var binaryFunction: (Double, Double) ->Double
         var firstOperand: Double
-        
     }
     
     var result:Double{
@@ -78,12 +82,4 @@ class CalculatorBrain{
             return accumalator
         }
     }
-//    var descriptionResult:String{
-//        get{
-//            return description
-//        }
-//    }
-    
-    
-    
 }
