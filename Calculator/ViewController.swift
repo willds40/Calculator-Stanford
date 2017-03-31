@@ -14,6 +14,9 @@ class CalculatorController: UIViewController {
     private var digit = " ", mathematicalSymbol = " ",secondOperand = " "
     private var firstOperand = " ", binaryOperationSymbol = " ", result = " "
     private var brain = CalculatorBrain()
+    private var variableValue = 0.0
+    
+    private var saveProgam:CalculatorBrain.PropertyList?
     
     @IBOutlet weak var display: UILabel!
     
@@ -25,31 +28,44 @@ class CalculatorController: UIViewController {
             display.text = String(newValue)
         }
     }
-    private var saveProgam:CalculatorBrain.PropertyList?
     
+    @IBAction func setVariable(_ sender: UIButton) {
+       brain.setOperand(variableName: sender.currentTitle!)
+        display.text = sender.currentTitle
+}
+   
+    @IBAction func storeVariableValue() {
+        brain.variableValuesDictionary["M"] = variableValue
+        saveProgam = brain.program
+        display.text! = clearDisplay()
+        currentUserIsTyping = false
+    }
     @IBAction func save() {
         saveProgam = brain.program
+        display.text! = clearDisplay()
+        currentUserIsTyping = false
     }
     
     @IBAction func restore() {
         if saveProgam != nil{
         brain.program = saveProgam!
-            displayValue = brain.result
+        displayValue = brain.result
         }
     }
     
     @IBAction func clearButton(_ sender: UIButton) {
         display.text! = clearDisplay();
+        currentUserIsTyping = false
         reNew()
     }
     
     @IBAction private func mathematicalOperation(_ sender: UIButton) {
+        mathematicalSymbol = sender.currentTitle!
         if currentUserIsTyping{
             brain.setOperand(operand: displayValue)
             currentUserIsTyping = false
         }
-        mathematicalSymbol = sender.currentTitle!
-        
+
         if binaryOperation{
             secondOperand = digit
         }
@@ -57,7 +73,7 @@ class CalculatorController: UIViewController {
         if binaryOperations.contains(mathematicalSymbol){
             binaryOperation = true
             binaryOperationSymbol = mathematicalSymbol
-            firstOperand = digit;
+            firstOperand = digit
             brain.isPartailResult = true;
         }else{
             brain.isPartailResult = false
@@ -87,17 +103,23 @@ class CalculatorController: UIViewController {
     }
     @IBAction private func digit(_ sender: UIButton) {
         digit = sender.currentTitle!
+        variableValue = Double(digit)!
         
         if currentUserIsTyping{
             let currentDisplayText = display.text!
             display.text! = currentDisplayText + digit
             digit = currentDisplayText + digit
+            if digit != " "{
+            variableValue = Double(digit)!
+            }
             
         }else{
             if binaryOperation{
                 secondOperand = sender.currentTitle!
             }
             display.text! = digit
+            variableValue = Double(digit)!
+            
         }
         currentUserIsTyping = true
     }

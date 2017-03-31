@@ -4,20 +4,30 @@ var binaryOperations:[String] = [
     "x", "/", "+", "-",
 ]
 class CalculatorBrain{
+    
     private var internalProgram = [AnyObject]()
     private  var accumalator = 0.0
     private var description = " "
     var isPartailResult = false
+    var variableKey = ""
+    var variableValue = 0.0
+    
     
     func setOperand(operand:Double){
         accumalator = operand
         internalProgram.append(operand as AnyObject)
     }
+   
+    var variableValuesDictionary:Dictionary<String, Double> = [:]
     
-    func clear (digit:Double)->Double{
-        accumalator = 0.0
-        return accumalator;
+    func setOperand(variableName: String){
+        variableKey = variableName
+        internalProgram.append(variableName as AnyObject)
+        if variableValuesDictionary[variableName] != nil{
+        accumalator = variableValuesDictionary[variableKey]!
+        }
     }
+    
     
     private var  operations:Dictionary<String, Operation> = [
         "pie" :Operation.Constant(M_PI),
@@ -93,12 +103,16 @@ class CalculatorBrain{
                         setOperand(operand: operand)
                     } else if let operation = op as? String{
                         preformOperation(mathematicalSymbol: operation)
+                    }else if let variable = op as? Double {
+                    setOperand(operand: variable)
                     }
                 }
             }
         }
     }
-    private func clear(){
+    
+    
+     func clear(){
         accumalator = 0.0
         pending = nil
         internalProgram.removeAll()
