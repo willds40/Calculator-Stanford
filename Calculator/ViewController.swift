@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class CalculatorController: UIViewController {
 
@@ -41,11 +42,11 @@ class CalculatorController: UIViewController {
         display.text! = clearDisplay()
         currentUserIsTyping = false
     }
-    @IBAction func save() {
-        saveProgam = brain.program
-        display.text! = clearDisplay()
-        currentUserIsTyping = false
-    }
+    
+    @IBAction func undo() {
+        display.text = display.text?.substring(to: (display.text?.index(before: (display.text?.endIndex)!))!)
+            }
+    
     
     @IBAction func restore() {
         if saveProgam != nil{
