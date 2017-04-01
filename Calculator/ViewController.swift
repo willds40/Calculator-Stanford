@@ -10,9 +10,9 @@ import UIKit
 
 class CalculatorController: UIViewController {
 
-    private var currentUserIsTyping = false, binaryOperation = false
-    private var digit = " ", mathematicalSymbol = " ",secondOperand = " "
-    private var firstOperand = " ", binaryOperationSymbol = " ", result = " "
+    private var currentUserIsTyping = false,
+    binaryOperation = false, variableHasBeenUsed = false
+    private var digit = " ", mathematicalSymbol = " "
     private var brain = CalculatorBrain()
     private var variableValue = 0.0
     
@@ -28,13 +28,14 @@ class CalculatorController: UIViewController {
             display.text = String(newValue)
         }
     }
-    
     @IBAction func setVariable(_ sender: UIButton) {
        brain.setOperand(variableName: sender.currentTitle!)
         display.text = sender.currentTitle
+        variableHasBeenUsed = true
 }
    
     @IBAction func storeVariableValue() {
+         variableValue = displayValue
         brain.variableValuesDictionary["M"] = variableValue
         saveProgam = brain.program
         display.text! = clearDisplay()
@@ -65,19 +66,6 @@ class CalculatorController: UIViewController {
             brain.setOperand(operand: displayValue)
             currentUserIsTyping = false
         }
-
-        if binaryOperation{
-            secondOperand = digit
-        }
-        
-        if binaryOperations.contains(mathematicalSymbol){
-            binaryOperation = true
-            binaryOperationSymbol = mathematicalSymbol
-            firstOperand = digit
-            brain.isPartailResult = true;
-        }else{
-            brain.isPartailResult = false
-        }
         brain.preformOperation(mathematicalSymbol:mathematicalSymbol)
         displayValue = brain.result
     }
@@ -88,39 +76,27 @@ class CalculatorController: UIViewController {
     private func reNew(){
         self.viewDidLoad()
         self.viewWillAppear(true)
+        brain.clear()
     }
     
     @IBAction func PrintDescription(_ sender: UIButton) {
         display.text! = clearDisplay()
-        result = String(brain.result)
-    
-        if !binaryOperation {
-            display.text! = brain.printDescription(oper1: digit, symbol: mathematicalSymbol, oper2: secondOperand, result:result)
-        }else{
-            display.text! = brain.printDescription(oper1: firstOperand, symbol: binaryOperationSymbol, oper2: secondOperand, result: result)
-        }
+        brain.preformOperation(mathematicalSymbol: "")
+        display.text! = brain.printDescription
+        
         
     }
     @IBAction private func digit(_ sender: UIButton) {
         digit = sender.currentTitle!
-        variableValue = Double(digit)!
         
         if currentUserIsTyping{
             let currentDisplayText = display.text!
             display.text! = currentDisplayText + digit
             digit = currentDisplayText + digit
-            if digit != " "{
-            variableValue = Double(digit)!
-            }
             
         }else{
-            if binaryOperation{
-                secondOperand = sender.currentTitle!
-            }
-            display.text! = digit
-            variableValue = Double(digit)!
-            
-        }
+        display.text! = digit
+               }
         currentUserIsTyping = true
     }
 }
