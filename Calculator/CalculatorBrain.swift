@@ -16,7 +16,6 @@ class CalculatorBrain{
         description += String(operand)
     }
     
-    
     func setOperand(variableName: String){
         variableKey = variableName
         internalProgram.append(variableName as AnyObject)

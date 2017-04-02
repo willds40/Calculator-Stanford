@@ -48,7 +48,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RE2-8U-VhE">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="88.5" height="50.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="69" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="-">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,8 +57,19 @@
                                                                                     <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iaf-g3-2fW"/>
                                                                                 </connections>
                                                                             </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heY-Rs-B0u">
+                                                                                <rect key="frame" x="76" y="0.0" width="69.5" height="50.5"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                <state key="normal" title="logten">
+                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqK-C3-OAw"/>
+                                                                                </connections>
+                                                                            </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-zf-3my">
-                                                                                <rect key="frame" x="95.5" y="0.0" width="88" height="50.5"/>
+                                                                                <rect key="frame" x="152.5" y="0.0" width="69" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="sin">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,7 +79,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdU-f9-WfX">
-                                                                                <rect key="frame" x="190.5" y="0.0" width="88.5" height="50.5"/>
+                                                                                <rect key="frame" x="228.5" y="0.0" width="69.5" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="e">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,7 +89,7 @@
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5i-Up-xuZ">
-                                                                                <rect key="frame" x="286" y="0.0" width="88" height="50.5"/>
+                                                                                <rect key="frame" x="305" y="0.0" width="69" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <state key="normal" title="tan">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -237,35 +248,35 @@
                                                                                     <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9v-5Y-tT9"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik6-kv-dKe">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzQ-XT-7YF">
                                                                                 <rect key="frame" x="95.5" y="0.0" width="88" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <state key="normal" title="logtwo">
+                                                                                <state key="normal" title=".">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jYJ-Fa-wp3"/>
+                                                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qus-2j-mwJ"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heY-Rs-B0u">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCW-zp-2qq">
                                                                                 <rect key="frame" x="190.5" y="0.0" width="88.5" height="50.5"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                <state key="normal" title="logten">
+                                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <state key="normal" title="0">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xqK-C3-OAw"/>
+                                                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lEj-Ee-Hd0"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWJ-zM-eqm">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-jt-ezh">
                                                                                 <rect key="frame" x="286" y="0.0" width="88" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <state key="normal" title="log">
+                                                                                <state key="normal" title="=">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lE3-HJ-VUa"/>
+                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UgE-FH-cId"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -293,24 +304,24 @@
                                                                                     <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l9T-gI-1P8"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzQ-XT-7YF">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWJ-zM-eqm">
                                                                                 <rect key="frame" x="190.5" y="0.0" width="88.5" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <state key="normal" title=".">
+                                                                                <state key="normal" title="log">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qus-2j-mwJ"/>
+                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lE3-HJ-VUa"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2O-jt-ezh">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ik6-kv-dKe">
                                                                                 <rect key="frame" x="286" y="0.0" width="88" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <state key="normal" title="=">
+                                                                                <state key="normal" title="logtwo">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UgE-FH-cId"/>
+                                                                                    <action selector="mathematicalOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jYJ-Fa-wp3"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -319,7 +330,7 @@
                                                                         <rect key="frame" x="0.0" y="351" width="374" height="50.5"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82I-XM-TGP">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="50.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                                 <state key="normal" title="Description">
@@ -329,23 +340,13 @@
                                                                                     <action selector="PrintDescription:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lL8-RH-MzO"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCW-zp-2qq">
-                                                                                <rect key="frame" x="190.5" y="0.0" width="183.5" height="50.5"/>
-                                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <state key="normal" title="0">
-                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                </state>
-                                                                                <connections>
-                                                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lEj-Ee-Hd0"/>
-                                                                                </connections>
-                                                                            </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="deq-eG-YrH">
                                                                         <rect key="frame" x="0.0" y="409.5" width="374" height="50.5"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FC9-4u-jrE">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="50.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                                 <state key="normal" title="Undo">
@@ -355,17 +356,6 @@
                                                                                     <action selector="undo" destination="BYZ-38-t0r" eventType="touchUpInside" id="2tK-Dv-gxL"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76e-1m-7Sq">
-                                                                                <rect key="frame" x="190.5" y="0.0" width="183.5" height="50.5"/>
-                                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                                                <state key="normal" title="Restore">
-                                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                </state>
-                                                                                <connections>
-                                                                                    <action selector="restore" destination="BYZ-38-t0r" eventType="touchUpInside" id="TkO-5z-La5"/>
-                                                                                </connections>
-                                                                            </button>
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="t2C-iA-TZk">
@@ -373,7 +363,7 @@
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAi-S6-v1p">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="183.5" height="50.5"/>
-                                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                                                 <state key="normal" title="M">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -401,7 +391,8 @@
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cil-6x-glc">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="50.5"/>
                                                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <state key="normal" title="Clear">
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                                <state key="normal" title="C">
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>

@@ -17,7 +17,6 @@ class CalculatorController: UIViewController {
     private var brain = CalculatorBrain()
     private var variableValue = 0.0
     private var variableHasBeenUsed = false
-    
     private var saveProgam:CalculatorBrain.PropertyList?
     
     @IBOutlet weak var display: UILabel!
@@ -46,9 +45,9 @@ class CalculatorController: UIViewController {
     }
     
     @IBAction func undo() {
-        let count = (display.text?.characters.count)!
+        let displayCount = (display.text?.characters.count)!
         if currentUserIsTyping{
-            if count > 1 {
+            if displayCount > 1 {
                 display.text = display.text?.substring(to: (display.text?.index(before: (display.text?.endIndex)!))!)
             } else{
                 display.text! = clearDisplay()
@@ -62,9 +61,7 @@ class CalculatorController: UIViewController {
         if variableHasBeenUsed{
          brain.setOperand(operand: Double (digit)!)
         }
-        
     }
-    
     
     @IBAction func restore() {
         if saveProgam != nil{
@@ -102,12 +99,10 @@ class CalculatorController: UIViewController {
         display.text! = clearDisplay()
         brain.preformOperation(mathematicalSymbol: "")
         display.text! = brain.printDescription
-        
-        
     }
+    
     @IBAction private func digit(_ sender: UIButton) {
         digit = sender.currentTitle!
-        
         if currentUserIsTyping{
             let currentDisplayText = display.text!
             display.text! = currentDisplayText + digit
