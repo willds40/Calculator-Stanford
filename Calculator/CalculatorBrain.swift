@@ -16,6 +16,7 @@ class CalculatorBrain{
         description += String(operand)
     }
     
+    
     func setOperand(variableName: String){
         variableKey = variableName
         internalProgram.append(variableName as AnyObject)
@@ -93,6 +94,10 @@ class CalculatorBrain{
                 }
             }
         }
+    }
+   
+    func undo(){
+        description = description.substring(to: (description.index(before: (description.endIndex))))
     }
     
     func clear(){

@@ -10,12 +10,13 @@ import UIKit
 import Foundation
 
 class CalculatorController: UIViewController {
-
+    
     private var currentUserIsTyping = false,
-    binaryOperation = false, variableHasBeenUsed = false
+    binaryOperation = false
     private var digit = " ", mathematicalSymbol = " "
     private var brain = CalculatorBrain()
     private var variableValue = 0.0
+    private var variableHasBeenUsed = false
     
     private var saveProgam:CalculatorBrain.PropertyList?
     
@@ -30,13 +31,14 @@ class CalculatorController: UIViewController {
         }
     }
     @IBAction func setVariable(_ sender: UIButton) {
-       brain.setOperand(variableName: sender.currentTitle!)
+        brain.setOperand(variableName: sender.currentTitle!)
         display.text = sender.currentTitle
         variableHasBeenUsed = true
-}
-   
+        
+    }
+    
     @IBAction func storeVariableValue() {
-         variableValue = displayValue
+        variableValue = displayValue
         brain.variableValuesDictionary["M"] = variableValue
         saveProgam = brain.program
         display.text! = clearDisplay()
@@ -44,14 +46,30 @@ class CalculatorController: UIViewController {
     }
     
     @IBAction func undo() {
-        display.text = display.text?.substring(to: (display.text?.index(before: (display.text?.endIndex)!))!)
+        let count = (display.text?.characters.count)!
+        if currentUserIsTyping{
+            if count > 1 {
+                display.text = display.text?.substring(to: (display.text?.index(before: (display.text?.endIndex)!))!)
+            } else{
+                display.text! = clearDisplay()
             }
+        }
+        else{
+            display.text! = clearDisplay();
+        }
+        brain.undo()
+        currentUserIsTyping = false
+        if variableHasBeenUsed{
+         brain.setOperand(operand: Double (digit)!)
+        }
+        
+    }
     
     
     @IBAction func restore() {
         if saveProgam != nil{
-        brain.program = saveProgam!
-        displayValue = brain.result
+            brain.program = saveProgam!
+            displayValue = brain.result
         }
     }
     
@@ -96,8 +114,8 @@ class CalculatorController: UIViewController {
             digit = currentDisplayText + digit
             
         }else{
-        display.text! = digit
-               }
+            display.text! = digit
+        }
         currentUserIsTyping = true
     }
 }
