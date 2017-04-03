@@ -9,16 +9,27 @@
 import UIKit
 import Foundation
 
-class CalculatorController: UIViewController {
+class CalculatorViewController: UIViewController {
     
     private var currentUserIsTyping = false,
     binaryOperation = false
     private var digit = " ", mathematicalSymbol = " "
-    private var brain = CalculatorBrain()
     private var variableValue = 0.0
     private var variableHasBeenUsed = false
     private var saveProgam:CalculatorBrain.PropertyList?
     
+    private var brain = CalculatorBrain()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination
+        if destinationVC is GraphViewController{
+            if segue.identifier == "graphSegue"{
+            
+            }
+        }
+    }
+    
+
     @IBOutlet weak var display: UILabel!
     
     private var displayValue:Double{
