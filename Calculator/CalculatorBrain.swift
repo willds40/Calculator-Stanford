@@ -9,6 +9,7 @@ class CalculatorBrain{
     var variableKey = ""
     var variableValue = 0.0
     var variableValuesDictionary:Dictionary<String, Double> = [:]
+    var nonBinary = false
     
     func setOperand(operand:Double){
         accumalator = operand
@@ -54,9 +55,9 @@ class CalculatorBrain{
         internalProgram.append(mathematicalSymbol as AnyObject)
         if let operation = operations[mathematicalSymbol]{
             switch operation {
-            case .Constant(let value):accumalator = value
+            case .Constant(let value):accumalator = value;nonBinary = true;
             case .BinaryOperations(let function): pending = PendingBinaryOperationInfo(binaryFunction: function, firstOperand: accumalator);
-            case.UniaryOperations(let function):accumalator = function(accumalator);
+            case.UniaryOperations(let function):accumalator = function(accumalator); nonBinary = true
             case.Equals:
                 if pending != nil{
                     accumalator = pending!.binaryFunction(pending!.firstOperand, accumalator);
@@ -114,10 +115,14 @@ class CalculatorBrain{
     
     var printDescription:String{
         get{
-            if isPartailResult{
+            if nonBinary{
+                return description + String(accumalator)
+            }
+            else if isPartailResult{
                 return description + "..."
-            }else{
-                return description
+            }
+            else{
+                return description + String(accumalator)
             }
         }
     }

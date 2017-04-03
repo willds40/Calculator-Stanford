@@ -12,8 +12,12 @@ class GraphViewController: UIViewController {
 
     
     
-    @IBOutlet weak var graphView: UIView!
-   
+    @IBOutlet weak var graphView: GraphView!{
+        didSet{
+//        graphView.addGestureRecognizer(UIPinchGestureRecognizer(target:graphView, action: #selector(graphView.changeScale(_:))))
+        
+        }
+}
     private var brain = CalculatorBrain(){
         didSet{
             updateUI()
@@ -22,8 +26,6 @@ class GraphViewController: UIViewController {
     private func updateUI(){
     }
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

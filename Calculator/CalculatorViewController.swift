@@ -24,12 +24,11 @@ class CalculatorViewController: UIViewController {
         let destinationVC = segue.destination
         if destinationVC is GraphViewController{
             if segue.identifier == "graphSegue"{
-            
+                
             }
         }
     }
     
-
     @IBOutlet weak var display: UILabel!
     
     private var displayValue:Double{
@@ -70,7 +69,7 @@ class CalculatorViewController: UIViewController {
         brain.undo()
         currentUserIsTyping = false
         if variableHasBeenUsed{
-         brain.setOperand(operand: Double (digit)!)
+            brain.setOperand(operand: Double (digit)!)
         }
     }
     
