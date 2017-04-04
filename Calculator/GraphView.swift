@@ -12,9 +12,23 @@ class GraphView: UIView {
     
     @IBInspectable
     var scale: CGFloat = 0.90{didSet{setNeedsDisplay()}}
+    @IBInspectable
+    var origin:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var originHasBeenChanged = false
+//    var graphOrigin: CGPoint{
+//        return CGPoint(x:bounds.midX, y: bounds.midY)
+//    }
+//    
     
-    var graphOrigin: CGPoint{
-       return CGPoint(x:bounds.midX, y: bounds.midY)}
+    func moveOrigin(recognizer: UITapGestureRecognizer){
+     let touchPoint = recognizer.location(in: self)
+        switch recognizer.state{
+        case .ended:
+        origin = touchPoint
+        default: break
+        }
+    
+    }
     
     func changeScale(recognizer: UIPinchGestureRecognizer){
         switch recognizer.state{
@@ -25,10 +39,14 @@ class GraphView: UIView {
         }
     }
     
-    override func draw(_ rect: CGRect) {
-               let axixDrawer:AxesDrawer = AxesDrawer()
-        axixDrawer.drawAxes(in: rect, origin: graphOrigin, pointsPerUnit: CGFloat(scale))
+       override func draw(_ rect: CGRect) {
+        let axixDrawer:AxesDrawer = AxesDrawer()
+        if !originHasBeenChanged {
+        origin = CGPoint(x: bounds.midX, y: bounds.midY)
+        }
+       
+        axixDrawer.drawAxes(in: rect, origin: origin, pointsPerUnit: CGFloat(scale))
+        originHasBeenChanged = true
     }
-    
     
 }

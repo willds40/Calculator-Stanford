@@ -9,6 +9,8 @@
 import UIKit
 
 class GraphViewController: UIViewController {
+    
+    
 
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
@@ -24,6 +26,7 @@ class GraphViewController: UIViewController {
     @IBOutlet weak var graphView: GraphView!{
         didSet{
             graphView.addGestureRecognizer(UIPinchGestureRecognizer (target: graphView, action: #selector(graphView.changeScale(recognizer:))))
+            graphView.addGestureRecognizer(UITapGestureRecognizer (target: graphView, action: #selector(graphView.moveOrigin(recognizer:))))
         }
     }
     

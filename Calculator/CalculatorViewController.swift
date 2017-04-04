@@ -39,6 +39,7 @@ class CalculatorViewController: UIViewController {
             display.text = String(newValue)
         }
     }
+    
     @IBAction func setVariable(_ sender: UIButton) {
         brain.setOperand(variableName: sender.currentTitle!)
         display.text = sender.currentTitle
