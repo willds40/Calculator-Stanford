@@ -13,19 +13,21 @@ class GraphView: UIView {
     @IBInspectable
     var scale: CGFloat = 0.90{didSet{setNeedsDisplay()}}
     
-    override func draw(_ rect: CGRect) {
-        let graphOrigin = CGPoint(x:bounds.midX, y: bounds.midY)
-        let axixDrawer:AxesDrawer = AxesDrawer()
-        axixDrawer.drawAxes(in: rect, origin: graphOrigin, pointsPerUnit: CGFloat(scale))
-        
-        func changeScale(recognizer: UIPinchGestureRecognizer){
-            switch recognizer.state{
-            case.changed,.ended:
-                scale *= recognizer.scale
-                recognizer.scale = 1.0
-            default: break
-            }
+    var graphOrigin: CGPoint{
+       return CGPoint(x:bounds.midX, y: bounds.midY)}
+    
+    func changeScale(recognizer: UIPinchGestureRecognizer){
+        switch recognizer.state{
+        case.changed,.ended:
+            scale *= recognizer.scale
+            recognizer.scale = 1.0
+        default: break
         }
+    }
+    
+    override func draw(_ rect: CGRect) {
+               let axixDrawer:AxesDrawer = AxesDrawer()
+        axixDrawer.drawAxes(in: rect, origin: graphOrigin, pointsPerUnit: CGFloat(scale))
     }
     
     

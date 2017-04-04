@@ -11,13 +11,13 @@ import UIKit
 class GraphViewController: UIViewController {
 
     
-    
     @IBOutlet weak var graphView: GraphView!{
         didSet{
-//        graphView.addGestureRecognizer(UIPinchGestureRecognizer(target:graphView, action: #selector(graphView.changeScale(_:))))
-        
+            graphView.addGestureRecognizer(UIPinchGestureRecognizer (target: graphView, action: #selector(graphView.changeScale(recognizer:))))
         }
-}
+    }
+    
+    
     private var brain = CalculatorBrain(){
         didSet{
             updateUI()
