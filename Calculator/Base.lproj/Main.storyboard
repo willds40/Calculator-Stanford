@@ -38,21 +38,35 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbf-5B-aen" userLabel="GraphView" customClass="GraphView" customModule="Calculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="JSP-Qy-K1q" appends="YES" id="NkM-0f-Mmb"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="qbf-5B-aen" firstAttribute="leading" secondItem="JPE-vJ-VLm" secondAttribute="leading" id="4rq-V9-pmy"/>
                             <constraint firstAttribute="trailing" secondItem="qbf-5B-aen" secondAttribute="trailing" id="BkI-DH-5uI"/>
                             <constraint firstItem="qbf-5B-aen" firstAttribute="bottom" secondItem="KAV-65-JLm" secondAttribute="top" id="cXT-cU-Cbs"/>
                             <constraint firstItem="qbf-5B-aen" firstAttribute="top" secondItem="JPE-vJ-VLm" secondAttribute="top" id="wYW-5G-4kO"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="JSP-Qy-K1q" appends="YES" id="F3l-bT-V26"/>
+                            <outletCollection property="gestureRecognizers" destination="JSP-Qy-K1q" appends="YES" id="uny-1f-i5j"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="graphView" destination="qbf-5B-aen" id="zAW-kj-Sm6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKg-gX-pmw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="JSP-Qy-K1q">
+                    <connections>
+                        <action selector="handlePanWithRecognizer:" destination="VJx-rG-dIu" id="hxp-qr-mJW"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="309.60000000000002" y="649.92503748125944"/>
         </scene>
