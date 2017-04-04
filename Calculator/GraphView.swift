@@ -9,16 +9,11 @@
 import UIKit
 @IBDesignable
 class GraphView: UIView {
-    
+    var originHasBeenChanged = false
     @IBInspectable
     var scale: CGFloat = 0.90{didSet{setNeedsDisplay()}}
     @IBInspectable
     var origin:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
-    var originHasBeenChanged = false
-//    var graphOrigin: CGPoint{
-//        return CGPoint(x:bounds.midX, y: bounds.midY)
-//    }
-//    
     
     func moveOrigin(recognizer: UITapGestureRecognizer){
      let touchPoint = recognizer.location(in: self)
@@ -27,7 +22,6 @@ class GraphView: UIView {
         origin = touchPoint
         default: break
         }
-    
     }
     
     func changeScale(recognizer: UIPinchGestureRecognizer){
@@ -38,7 +32,6 @@ class GraphView: UIView {
         default: break
         }
     }
-    
        override func draw(_ rect: CGRect) {
         let axixDrawer:AxesDrawer = AxesDrawer()
         if !originHasBeenChanged {

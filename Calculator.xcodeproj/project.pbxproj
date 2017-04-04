@@ -78,10 +78,10 @@
 			children = (
 				E8724CA41E92A6000019AD4A /* AxesDrawer.swift */,
 				E8C054A71E8C41DA00276640 /* CalculatorViewController.swift */,
-				E8724CA81E92B0810019AD4A /* GraphView.swift */,
-				E8C054A91E8C41DA00276640 /* Main.storyboard */,
-				E8724CA61E92A6230019AD4A /* GraphViewController.swift */,
 				E8CF01601E8D4EC400B627BC /* CalculatorBrain.swift */,
+				E8C054A91E8C41DA00276640 /* Main.storyboard */,
+				E8724CA81E92B0810019AD4A /* GraphView.swift */,
+				E8724CA61E92A6230019AD4A /* GraphViewController.swift */,
 				E8A14B731E8C492E00C761C5 /* Supporting Files */,
 			);
 			path = Calculator;
