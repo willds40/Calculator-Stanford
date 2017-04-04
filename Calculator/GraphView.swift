@@ -23,10 +23,8 @@ class GraphView: UIView {
     }
     
     func drawfunction(x:Double, y:Double){
-        newXPoint.x = graphOrigin.x + CGFloat(x)
-        newXPoint.y = graphOrigin.y
-        newYPoint.x = graphOrigin.x
-        newYPoint.y = graphOrigin.y + CGFloat(y)
+        newXPoint.x = CGFloat(x)
+        newYPoint.y =  CGFloat(y)
     }
     
     func changeScale(recognizer: UIPinchGestureRecognizer){
@@ -38,11 +36,16 @@ class GraphView: UIView {
         }
     }
     override func draw(_ rect: CGRect) {
+        let axixDrawer:AxesDrawer = AxesDrawer()
+        if !originHasBeenChanged {
+            graphOrigin = CGPoint(x: bounds.midX, y: bounds.midY)
+        }
+        axixDrawer.drawAxes(in: rect, origin: graphOrigin, pointsPerUnit: CGFloat(scale))
+        originHasBeenChanged = true
         
-        
-        if !originHasBeenChanged{
-            let x = CGPoint(x:newXPoint.x,y: newXPoint.y)
-            let y = CGPoint(x:newYPoint.x,y:newYPoint.y)
+        if originHasBeenChanged{
+            let x = CGPoint(x:newXPoint.x + graphOrigin.x,y: newXPoint.y+graphOrigin.y)
+            let y = CGPoint(x:newYPoint.x + graphOrigin.x,y:newYPoint.y+graphOrigin.y)
             let path = UIBezierPath()
             path.move(to: y)
             path.addLine(to: x)
@@ -53,14 +56,8 @@ class GraphView: UIView {
             path.stroke()
             path.fill()
         }
-        
-        let axixDrawer:AxesDrawer = AxesDrawer()
-        if !originHasBeenChanged {
-            graphOrigin = CGPoint(x: bounds.midX, y: bounds.midY)
-        }
-        
-        axixDrawer.drawAxes(in: rect, origin: graphOrigin, pointsPerUnit: CGFloat(scale))
-        originHasBeenChanged = true
+
+    
     }
     
 }
