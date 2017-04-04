@@ -22,9 +22,11 @@ class CalculatorViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination
-        if destinationVC is GraphViewController{
+        if  let graphVC = destinationVC as? GraphViewController {
             if segue.identifier == "graphSegue"{
-                
+                graphVC.newXPoint = variableValue
+                graphVC.newYPoint = brain.result
+    
             }
         }
     }

@@ -1,27 +1,32 @@
-//
-//  GraphView.swift
-//  Calculator
-//
-//  Created by Will Devon-Sand on 4/3/17.
-//  Copyright © 2017 Will Devon-Sand. All rights reserved.
-//
 
 import UIKit
 @IBDesignable
 class GraphView: UIView {
+    
     var originHasBeenChanged = false
     @IBInspectable
-    var scale: CGFloat = 0.90{didSet{setNeedsDisplay()}}
+    var scale: CGFloat = 50.00{didSet{setNeedsDisplay()}}
     @IBInspectable
-    var origin:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var graphOrigin:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var start:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var end:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var newYPoint:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var newXPoint:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
     
     func moveOrigin(recognizer: UITapGestureRecognizer){
-     let touchPoint = recognizer.location(in: self)
+        let touchPoint = recognizer.location(in: self)
         switch recognizer.state{
         case .ended:
-        origin = touchPoint
+            graphOrigin = touchPoint
         default: break
         }
+    }
+    
+    func drawfunction(x:Double, y:Double){
+        newXPoint.x = graphOrigin.x + CGFloat(x)
+        newXPoint.y = graphOrigin.y
+        newYPoint.x = graphOrigin.x
+        newYPoint.y = graphOrigin.y + CGFloat(y)
     }
     
     func changeScale(recognizer: UIPinchGestureRecognizer){
@@ -32,13 +37,29 @@ class GraphView: UIView {
         default: break
         }
     }
-       override func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) {
+        
+        
+        if !originHasBeenChanged{
+            let x = CGPoint(x:newXPoint.x,y: newXPoint.y)
+            let y = CGPoint(x:newYPoint.x,y:newYPoint.y)
+            let path = UIBezierPath()
+            path.move(to: y)
+            path.addLine(to: x)
+            path.close()
+            
+            UIColor.red.set()
+            path.lineWidth = 20.0
+            path.stroke()
+            path.fill()
+        }
+        
         let axixDrawer:AxesDrawer = AxesDrawer()
         if !originHasBeenChanged {
-        origin = CGPoint(x: bounds.midX, y: bounds.midY)
+            graphOrigin = CGPoint(x: bounds.midX, y: bounds.midY)
         }
-       
-        axixDrawer.drawAxes(in: rect, origin: origin, pointsPerUnit: CGFloat(scale))
+        
+        axixDrawer.drawAxes(in: rect, origin: graphOrigin, pointsPerUnit: CGFloat(scale))
         originHasBeenChanged = true
     }
     

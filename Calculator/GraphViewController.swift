@@ -10,6 +10,11 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
+    var newXPoint:Double = Double(0.0) {
+        didSet{updateUI()}}
+    var newYPoint:Double = Double(0.0) {
+        didSet{updateUI()}}
+    
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
         if let view = recognizer.view {
@@ -23,6 +28,9 @@ class GraphViewController: UIViewController {
         didSet{
             graphView.addGestureRecognizer(UIPinchGestureRecognizer (target: graphView, action: #selector(graphView.changeScale(recognizer:))))
             graphView.addGestureRecognizer(UITapGestureRecognizer (target: graphView, action: #selector(graphView.moveOrigin(recognizer:))))
+            
+            updateUI()
+            
         }
     }
     
@@ -32,6 +40,9 @@ class GraphViewController: UIViewController {
         }
     }
     private func updateUI(){
+        if graphView != nil {
+            graphView.drawfunction(x: newXPoint, y: newYPoint)
+        }
     }
     
     override func viewDidLoad() {
@@ -42,7 +53,4 @@ class GraphViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
 }
