@@ -14,6 +14,11 @@ class GraphViewController: UIViewController {
         didSet{updateUI()}}
     var newYPoint:Double = Double(0.0) {
         didSet{updateUI()}}
+    var mathematicalSymbol:String = ""{
+        didSet{
+        updateUI()
+        }
+    }
     
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
@@ -42,6 +47,9 @@ class GraphViewController: UIViewController {
     private func updateUI(){
         if graphView != nil {
         graphView.drawfunction(x: newXPoint, y: newYPoint)
+            if mathematicalSymbol != "" {
+            graphView.mathematicalSymbol = mathematicalSymbol
+            }
         }
     }
     

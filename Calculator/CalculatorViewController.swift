@@ -17,6 +17,7 @@ class CalculatorViewController: UIViewController {
     private var variableValue = 0.0
     private var variableHasBeenUsed = false
     private var saveProgam:CalculatorBrain.PropertyList?
+    private var trigSymbols = ["sin", "tan", "cos"]
     
     private var brain = CalculatorBrain()
     
@@ -29,7 +30,13 @@ class CalculatorViewController: UIViewController {
             if segue.identifier == "graphSegue"{
                 graphVC.newXPoint = variableValue
                 graphVC.newYPoint = brain.result
-                graphVC.navigationItem.title = brain.printTitle            }
+                graphVC.navigationItem.title = brain.printTitle
+                if trigSymbols.contains(mathematicalSymbol) {
+                    graphVC.mathematicalSymbol = mathematicalSymbol
+                }
+                
+                
+            }
         }
     }
     

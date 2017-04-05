@@ -3,15 +3,15 @@ import UIKit
 @IBDesignable
 class GraphView: UIView {
     
-    var originHasBeenChanged = false
     @IBInspectable
     var scale: CGFloat = 30.00{didSet{setNeedsDisplay()}}
-    @IBInspectable
+    var originHasBeenChanged = false
     var graphOrigin:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
     var start:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
     var end:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
     var newYPoint:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
     var newXPoint:CGPoint = CGPoint(x:0, y:0){didSet{setNeedsDisplay()}}
+    var mathematicalSymbol: String = ""{didSet{setNeedsDisplay()}}
     
     func moveOrigin(recognizer: UITapGestureRecognizer){
         let touchPoint = recognizer.location(in: self)

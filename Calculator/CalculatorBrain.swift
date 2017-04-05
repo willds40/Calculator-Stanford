@@ -117,7 +117,7 @@ class CalculatorBrain{
     }
     var printTitle:String{
         get{
-        return description
+        return description 
         }
     }
     
