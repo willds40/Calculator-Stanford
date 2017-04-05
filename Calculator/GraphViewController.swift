@@ -41,7 +41,7 @@ class GraphViewController: UIViewController {
     }
     private func updateUI(){
         if graphView != nil {
-            graphView.drawfunction(x: newXPoint, y: newYPoint)
+        graphView.drawfunction(x: newXPoint, y: newYPoint)
         }
     }
     

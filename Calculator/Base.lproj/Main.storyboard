@@ -15,7 +15,7 @@
             <objects>
                 <splitViewController id="tFT-oR-27y" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="VJx-rG-dIu" kind="relationship" relationship="detailViewController" id="K6L-DS-N3W"/>
+                        <segue destination="PEi-5Z-51y" kind="relationship" relationship="detailViewController" id="K6L-DS-N3W"/>
                         <segue destination="wOM-Db-clB" kind="relationship" relationship="masterViewController" id="dZG-7f-9ZZ"/>
                     </connections>
                 </splitViewController>
@@ -50,6 +50,7 @@
                             <constraint firstItem="qbf-5B-aen" firstAttribute="top" secondItem="JPE-vJ-VLm" secondAttribute="top" id="wYW-5G-4kO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dCh-UJ-Ypf"/>
                     <connections>
                         <outlet property="graphView" destination="qbf-5B-aen" id="zAW-kj-Sm6"/>
                     </connections>
@@ -61,7 +62,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="309.60000000000002" y="649.92503748125944"/>
+            <point key="canvasLocation" x="1248.8" y="649.92503748125944"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
@@ -449,7 +450,7 @@
                                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <connections>
-                                                                                    <segue destination="VJx-rG-dIu" kind="showDetail" identifier="graphSegue" id="9yw-02-6Ex"/>
+                                                                                    <segue destination="PEi-5Z-51y" kind="showDetail" identifier="graphSegue" id="9yw-02-6Ex"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyn-aW-spO">
@@ -511,8 +512,26 @@
             </objects>
             <point key="canvasLocation" x="309.60000000000002" y="-255.02248875562222"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2Bp-aw-qlE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PEi-5Z-51y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ih3-VF-F79">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VJx-rG-dIu" kind="relationship" relationship="rootViewController" id="wcB-yK-kJw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uk1-UG-zSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="309.60000000000002" y="649.92503748125944"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9yw-02-6Ex"/>
+        <segue reference="K6L-DS-N3W"/>
     </inferredMetricsTieBreakers>
 </document>
